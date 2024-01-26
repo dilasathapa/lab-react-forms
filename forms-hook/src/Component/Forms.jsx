@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Forms =()=>{
 
@@ -29,6 +31,7 @@ const Forms =()=>{
         let errorKey = Object.keys(errors);
         if(errorKey.length == 0){
             // let the user to register
+            toast("Registraion Successful!")
             setFSubmit(true)
         }else{
             setFSubmit(false)
@@ -54,11 +57,10 @@ const Forms =()=>{
         return error;
     }
 
-    // let fSubmit = null/undefined
-    // let arr = []
     return (
         <>
         <div className="form-parent">
+            <ToastContainer/>
             <form onSubmit={formSubmit}>
                 <div>
                     {fSubmit && <p>Registration Sucessful!</p> }
